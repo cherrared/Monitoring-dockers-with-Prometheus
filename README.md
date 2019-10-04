@@ -1,7 +1,3 @@
-[![pipeline status](https://gitlab.forge.orange-labs.fr/lucy/ihl/monitoring-dockers-with-prometheus/badges/master/pipeline.svg)](https://gitlab.forge.orange-labs.fr/lucy/ihl/monitoring-dockers-with-prometheus/commits/master)
-[![Try in PWD](https://dabuttonfactory.com/button.png?t=Test+with+PlayGround&f=Calibri-Bold&ts=24&tc=fff&tshs=1&tshc=000&hp=20&vp=8&c=5&bgt=gradient&bgc=e54405&ebgc=000)](http://lucy1.rd.francetelecom.fr/?stack=https://gitlab.forge.orange-labs.fr/jtkp3624/monitoring-dockers-with-prometheus/blob/master/docker-compose.yml&stack_name=prometheus)
-
-
 # 1. Monitoring dockers with Prometheus
 
 In this project, we provide both Prometheus and Grafana monitoring for Docker's metrics. In particular, we monitor clearwater vIMS docker.
