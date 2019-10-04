@@ -1,38 +1,42 @@
-# prometheus_clearwater
-Monitoring Containers __VIMS-ClearWater__ with __Prometheus__, __Grafana__ and __containers-Exporters__
-
-----------------
-
-## NB: here you need to use only two files: docker-compose.yml and prometheus.yml
+[![pipeline status](https://gitlab.forge.orange-labs.fr/lucy/ihl/monitoring-dockers-with-prometheus/badges/master/pipeline.svg)](https://gitlab.forge.orange-labs.fr/lucy/ihl/monitoring-dockers-with-prometheus/commits/master)
+[![Try in PWD](https://dabuttonfactory.com/button.png?t=Test+with+PlayGround&f=Calibri-Bold&ts=24&tc=fff&tshs=1&tshc=000&hp=20&vp=8&c=5&bgt=gradient&bgc=e54405&ebgc=000)](http://lucy1.rd.francetelecom.fr/?stack=https://gitlab.forge.orange-labs.fr/jtkp3624/monitoring-dockers-with-prometheus/blob/master/docker-compose.yml&stack_name=prometheus)
 
 
-## Prerequisites
-To start you need to install [__docker__ and __docker-compose__](https://websiteforstudents.com/how-to-install-docker-and-docker-compose-on-ubuntu-16-04-18-04/)
-You also need to pull the docker images of: [_prometheus_](https://hub.docker.com/r/prom/prometheus/), [grafana](https://hub.docker.com/r/grafana/grafana/) and [container-exporter](https://hub.docker.com/r/prom/container-exporter/) 
+# 1. Monitoring dockers with Prometheus
 
-## Getting Started
+In this project, we provide both Prometheus and Grafana monitoring for Docker's metrics. In particular, we monitor clearwater vIMS docker.
+## What's inside
 
-We have used and docker-compose.yml
- 
-To create a volume for grafana :  
+* Docker compose file with a [Prometheus](https://hub.docker.com/r/prom/prometheus/), [Grafana](https://hub.docker.com/r/grafana/grafana) and [container exporter](https://hub.docker.com/r/prom/container-exporter/) configurations
+* Description file Prometheus.yml including Prometheus configuration. 
 
-`docker volume create --name=grafana-volume`
+## Prerequisites 
+* To start you need to install docker and [docker-compose](https://docs.docker.com/compose/install/) if not already installed. 
 
-On a terminal type:
+## Launch Prometheus and Grafana dockers 
+```
+$ git clone https://gitlab.forge.orange-labs.fr/lucy/ihl/monitoring-dockers-with-prometheus.git
+```
+```
+$ docker-compose up
+```
+## Prometheus and Grafana
+In a browser 
+* localhost@:9090 for Prometheus Dashbord
+* localhost@:3000 for Grafana Dashbord
 
-`docker_compose up`
 
-In a browser, type:  
+# 2. Monitoring Clearwater vIMS docker
 
-* `localhost@:9090` for prometheus Dashbord   
-* and `localhost@:3000` for grafana Dashbord
+ * Clone the project [clearwater vIMS docker](https://github.com/cherrared/clearwater-docker.git)
+```
+$ git clone https://github.com/sofianinho/clearwater-docker.git
+```
+* Launch clearwater vIMS docker 
+```
+$ docker-compose up
+```
 
-## Storage
-
-A script in python which copy the metrics from Prometheus to a file, is available on __readwrite.py__   
-We have chosed to work with __CVS file__. The extension file CVS (Comma-Separated Values)  is a text file that serves as a swap file between different software, most commonly between a spread sheet and another program. It allows to get rid of proprietary file formats, often complex, and unknown to other software.
-
-# Contributing
-
-We'd love for you to contribute to this container. You can request new features by creating an issue, or submit a pull request with your contribution.
+* You can monitor and visualize Clearwater's metrics on Prometheus and Grafana Dashbords.
+* If you want to monitor your Docker deployment via a web UI you can install and run [Weave Scope](https://www.weave.works/docs/scope/latest/installing/). It provides real time visualizations showing all of your containers, their resource usage and the connectivity between them.
 
